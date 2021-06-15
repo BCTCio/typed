@@ -1,0 +1,419 @@
+import { Document } from 'mongoose';
+
+export enum EStates {
+  'AL' = 'Alabama',
+  'AK' = 'Alaska',
+  'AS' = 'American Samoa',
+  'AZ' = 'Arizona',
+  'AR' = 'Arkansas',
+  'CA' = 'California',
+  'CO' = 'Colorado',
+  'CT' = 'Connecticut',
+  'DE' = 'Delaware',
+  'DC' = 'District Of Columbia',
+  'FM' = 'Federated States Of Micronesia',
+  'FL' = 'Florida',
+  'GA' = 'Georgia',
+  'GU' = 'Guam',
+  'HI' = 'Hawaii',
+  'ID' = 'Idaho',
+  'IL' = 'Illinois',
+  'IN' = 'Indiana',
+  'IA' = 'Iowa',
+  'KS' = 'Kansas',
+  'KY' = 'Kentucky',
+  'LA' = 'Louisiana',
+  'ME' = 'Maine',
+  'MH' = 'Marshall Islands',
+  'MD' = 'Maryland',
+  'MA' = 'Massachusetts',
+  'MI' = 'Michigan',
+  'MN' = 'Minnesota',
+  'MS' = 'Mississippi',
+  'MO' = 'Missouri',
+  'MT' = 'Montana',
+  'NE' = 'Nebraska',
+  'NV' = 'Nevada',
+  'NH' = 'New Hampshire',
+  'NJ' = 'New Jersey',
+  'NM' = 'New Mexico',
+  'NY' = 'New York',
+  'NC' = 'North Carolina',
+  'ND' = 'North Dakota',
+  'MP' = 'Northern Mariana Islands',
+  'OH' = 'Ohio',
+  'OK' = 'Oklahoma',
+  'OR' = 'Oregon',
+  'PW' = 'Palau',
+  'PA' = 'Pennsylvania',
+  'PR' = 'Puerto Rico',
+  'RI' = 'Rhode Island',
+  'SC' = 'South Carolina',
+  'SD' = 'South Dakota',
+  'TN' = 'Tennessee',
+  'TX' = 'Texas',
+  'UT' = 'Utah',
+  'VT' = 'Vermont',
+  'VI' = 'Virgin Islands',
+  'VA' = 'Virginia',
+  'WA' = 'Washington',
+  'WV' = 'West Virginia',
+  'WI' = 'Wisconsin',
+  'WY' = 'Wyoming',
+}
+
+export interface IAddress {
+  apt_number: string;
+  street: string;
+  city: string;
+  zip_code: string;
+  state: EStates;
+  longitude: string;
+  latitude: string;
+  nickname: string;
+  is_default: boolean;
+  phone: string;
+}
+
+// Orders
+
+export interface IOrder extends Document {
+  order_id: string;
+  user_id: string;
+  order_type: EOrderType;
+  payment_id: string;
+  items: IOrderItem[];
+  discounts?: string[];
+  subtotal: number;
+  discounts_amount: number;
+  tax_amount: number;
+  delivery_fee: number;
+  packing_fee: number;
+  platform_fee: number;
+  tips: number;
+  grand_total: number;
+  note?: string;
+  destination: IAddress;
+  status: EOrderStatus;
+  driver_id: string;
+  last_updated_at: Date;
+  group_order_id?: string;
+  group_order_time?: IGroupOrderTimeSlot;
+  schedule_time?: IScheduleTime;
+  createdAt?: string;
+  vendor?: {
+    title: IVendor['title'];
+    vendor_id: IVendor['vendor_id'];
+  };
+  vendorTitles?: string[];
+  vendorIds?: string[];
+  userName?: IUser['nickname'];
+  success?: boolean;
+}
+
+export interface IScheduleTime {
+  earliest_arrival: Date;
+  latest_arrival: Date;
+}
+
+export interface IOrderItem {
+  vendor_id: string;
+  vendor_title: string;
+  title: string;
+  quantity: number;
+  items_price_subtotal: number;
+  variant_title?: string | null | undefined;
+  item_image?: string;
+  modifiers: IOrderModifier[];
+}
+
+export interface IOrderRequestItem {
+  item_id: string;
+  quantity: number;
+  variant_id?: string;
+  modifiers: IOrderModifier[];
+  note?: string;
+}
+
+export interface IOrderModifier {
+  id: string;
+  title: string;
+  upcharge: number;
+  isMultiSelect: boolean;
+}
+
+export interface IOrderRequestBody {
+  user_id: string;
+  payment_id: string;
+  discounts?: IDiscount[];
+  note?: string;
+  order_type: EOrderType;
+  destination: IAddress;
+  status: EOrderStatus;
+  items: IOrderRequestItem[];
+  tips: number;
+  group_order_id?: string;
+  group_order_time?: IGroupOrderTimeSlot;
+  schedule_time?: IScheduleTime;
+}
+
+export enum EOrderType {
+  SCHEDULED = 'SCHEDULED',
+  INSTANT = 'INSTANT',
+  GROUP = 'GROUP',
+}
+
+export enum EOrderStatus {
+  UNPAID = 'UNPAID',
+  CANCELLED = 'CANCELLED',
+  PENDING = 'PENDING',
+  SCHEDULED = 'SCHEDULED',
+  PREPARING = 'PREPARING',
+  DELIVERING = 'DELIVERING',
+  DELIVERED = 'DELIVERED',
+}
+
+// Group orders pickup locations
+
+export interface IGroupOrderPickupLocation extends Document {
+  title: string;
+  address: IAddress;
+  image?: string;
+  participating_vendors: string[];
+  arrivals: IGroupOrderTimeSlot[];
+}
+
+export interface IGroupOrderTimeSlot {
+  arrival_time: number;
+  departure_time: number;
+  deadline_time: number;
+}
+
+// Discounts
+
+export interface IDiscount extends Document {
+  code: string;
+  start_date: Date;
+  end_date: Date;
+  type: EDiscountType;
+  target_amount?: number;
+  reduce_amount?: number;
+  percentage?: number;
+  vendors: [string];
+  users: [string];
+  limit?: number;
+  maximum?: number;
+}
+
+export enum EDiscountType {
+  REDUCTION = 'REDUCTION',
+  PERCENTAGE = 'PERCENTAGE',
+}
+
+// user
+
+export enum EGender {
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+  NULL = 'NULL',
+}
+
+export interface IUser extends Document {
+  user_id: string;
+  phone: string;
+  nickname?: string;
+  password: string;
+  email?: string;
+  first_name?: string;
+  last_name?: string;
+  stripe_customer_id?: string;
+  address_book: IAddress[];
+  social_provider?: string;
+  wx_open_id?: string;
+  wx_union_id?: string;
+  gender?: EGender;
+  avatar?: string;
+  favorite_vendors?: [string];
+  date_of_birth?: Date;
+  coupons: [string];
+}
+
+export interface ICreateUser {
+  phone: IUser['phone'];
+  password: IUser['password'];
+}
+
+// vendor
+
+export interface IVendor extends Vendor, Document {}
+interface Vendor {
+  vendor_id: string;
+  title: string;
+  phone: string;
+  address: IAddress;
+  open_hours: [
+    {
+      open: number; //Example: 1000(10AM) 0000(12AM)
+      close: number; //Example: 2100(9PM) 0000(12AM)
+    }
+  ];
+  logo?: string;
+  background_image?: string;
+  tags?: [string];
+  group_buy?: [string];
+  menu_assets?: [string];
+  email?: string;
+  password?: string;
+}
+
+export interface IVendorWithItems extends Vendor {
+  items?: IDishItem[];
+}
+
+export interface IVendorBasicInfo {
+  _id?: string;
+  vendor_id: IVendor['vendor_id'];
+  logo: IVendor['logo'];
+  title: IVendor['title'];
+}
+
+// dish item
+export interface IDishItem extends Document {
+  title: string;
+  vendor_id: string;
+  category_id: string;
+  description?: string;
+  base_price: number;
+  base_price_compared_at?: number;
+  variants: string[]; //必選
+  image?: string;
+  modifiers?: string[];
+}
+
+export interface IDishItemDetail {
+  title: string;
+  description?: string;
+  image?: string;
+  base_price: number;
+  base_price_compared_at?: number;
+  _id: string;
+  variants: IDishVariant[];
+  modifiers?: IModifierGroup[];
+  vendor_id: string;
+  vendor_title: string;
+}
+
+// category
+export interface IDishCategory extends Document {
+  title: string;
+  vendor_id: string;
+  description?: string;
+  image?: string;
+  itemsCount?: number;
+  _id?: string;
+}
+
+// variant
+export interface IDishVariant extends Document {
+  title: string;
+  vendor_id: string;
+  description?: string;
+  price: number;
+  price_compared_at: number;
+  count: number;
+}
+
+// modifiers
+
+interface IModifierByVariant {
+  variant: string; // id of the variant
+  upcharge: number;
+}
+
+interface IModifier {
+  title: string;
+  upcharge: number; // should be mutually exclusive with byVariants
+  byVariants: IModifierByVariant[];
+}
+
+export interface IModifierGroup extends Document {
+  instruction: string;
+  title?: string;
+  modifiers: IModifier[];
+  limitMin: number; // both max/min 0 meaning no limit
+  limitMax: number;
+  vendorId: string;
+  variants: string[];
+}
+
+// reviews
+
+export interface IOrderReview extends Document {
+  order_id: string;
+  vendor_id: string;
+  user_id: string;
+  submit_date: Date;
+  star: number;
+  comment?: string;
+  images?: string[];
+}
+
+// payments
+
+export interface IPayment extends Document {
+  payment_provider: EPaymentProvider;
+  provider_payment_id: string;
+  total_amount: number;
+}
+
+export enum EPaymentProvider {
+  STRIPE = 'STRIPE',
+  PAYPAL = 'PAYPAL',
+}
+
+// promp
+
+export interface IPromo extends Promo, Document {}
+
+interface Promo {
+  type: string;
+  slider: [{ image: string; vendor_id: string }];
+  recommendVendors: [string];
+}
+
+// vendor user
+
+export interface IVendorUser extends Document {
+  password: string | null;
+  username: string;
+  firstName: string;
+  lastName: string;
+  avatar?: string;
+  isAdmin: string[];
+  isUser: string[];
+  lastLoggedIn: Date;
+  userId: string;
+  isSuperAdmin: boolean;
+}
+
+// driver review
+
+export interface IDriverReview extends Document {
+  order_id: string;
+  driver_id: string;
+  user_id: string;
+  submit_date: Date;
+  star: number;
+  comment?: string;
+}
+
+// config
+
+export interface IConfig extends Document {
+  deliveryFeeMultiplier: number;
+  standardCommissionRate: number;
+  packageFee: number;
+  platformDiscount: number;
+  platformFeeRate: number;
+  minimumDeliveryAmount: number;
+}
