@@ -1,5 +1,5 @@
 {
-  "name": "bctc-typed",
+  "name": "@bctc/typed",
   "version": "1.0.0",
   "description": " Types definition repository for all BCTC projects",
   "main": "index.js",
@@ -18,5 +18,6 @@
   "homepage": "https://github.com/BCTCio/typed#readme",
   "devDependencies": {
     "typescript": "^4.3.2"
-  }
+  },
+  "dependencies": {}
 }
