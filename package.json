@@ -1,0 +1,22 @@
+{
+  "name": "bctc-typed",
+  "version": "1.0.0",
+  "description": " Types definition repository for all BCTC projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BCTCio/typed.git"
+  },
+  "author": "BCTC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BCTCio/typed/issues"
+  },
+  "homepage": "https://github.com/BCTCio/typed#readme",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  }
+}
