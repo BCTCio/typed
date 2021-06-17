@@ -1,6 +1,6 @@
 {
   "name": "@bctc/typed",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": " Types definition repository for all BCTC projects",
   "scripts": {},
   "repository": {
