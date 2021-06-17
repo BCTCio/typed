@@ -2,7 +2,6 @@
   "name": "@bctc/typed",
   "version": "1.0.2",
   "description": " Types definition repository for all BCTC projects",
-  "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
