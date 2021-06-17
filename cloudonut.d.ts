@@ -1,3 +1,5 @@
+export as namespace Cloudonut;
+
 export enum EStates {
   'AL' = 'Alabama',
   'AK' = 'Alaska',
