@@ -1,5 +1,3 @@
-import { Document } from 'mongoose';
-
 export enum EStates {
   'AL' = 'Alabama',
   'AK' = 'Alaska',
@@ -77,7 +75,7 @@ export interface IAddress {
 
 // Orders
 
-export interface IOrder extends Document {
+export interface IOrder {
   order_id: string;
   user_id: string;
   order_type: EOrderType;
@@ -175,7 +173,7 @@ export enum EOrderStatus {
 
 // Group orders pickup locations
 
-export interface IGroupOrderPickupLocation extends Document {
+export interface IGroupOrderPickupLocation {
   title: string;
   address: IAddress;
   image?: string;
@@ -191,7 +189,7 @@ export interface IGroupOrderTimeSlot {
 
 // Discounts
 
-export interface IDiscount extends Document {
+export interface IDiscount {
   code: string;
   start_date: Date;
   end_date: Date;
@@ -218,7 +216,7 @@ export enum EGender {
   NULL = 'NULL',
 }
 
-export interface IUser extends Document {
+export interface IUser {
   user_id: string;
   phone: string;
   nickname?: string;
@@ -245,7 +243,7 @@ export interface ICreateUser {
 
 // vendor
 
-export interface IVendor extends Vendor, Document {}
+export interface IVendor extends Vendor {}
 interface Vendor {
   vendor_id: string;
   title: string;
@@ -278,7 +276,7 @@ export interface IVendorBasicInfo {
 }
 
 // dish item
-export interface IDishItem extends Document {
+export interface IDishItem {
   title: string;
   vendor_id: string;
   category_id: string;
@@ -304,7 +302,7 @@ export interface IDishItemDetail {
 }
 
 // category
-export interface IDishCategory extends Document {
+export interface IDishCategory {
   title: string;
   vendor_id: string;
   description?: string;
@@ -314,7 +312,7 @@ export interface IDishCategory extends Document {
 }
 
 // variant
-export interface IDishVariant extends Document {
+export interface IDishVariant {
   title: string;
   vendor_id: string;
   description?: string;
@@ -336,7 +334,7 @@ interface IModifier {
   byVariants: IModifierByVariant[];
 }
 
-export interface IModifierGroup extends Document {
+export interface IModifierGroup {
   instruction: string;
   title?: string;
   modifiers: IModifier[];
@@ -348,7 +346,7 @@ export interface IModifierGroup extends Document {
 
 // reviews
 
-export interface IOrderReview extends Document {
+export interface IOrderReview {
   order_id: string;
   vendor_id: string;
   user_id: string;
@@ -360,7 +358,7 @@ export interface IOrderReview extends Document {
 
 // payments
 
-export interface IPayment extends Document {
+export interface IPayment {
   payment_provider: EPaymentProvider;
   provider_payment_id: string;
   total_amount: number;
@@ -373,7 +371,7 @@ export enum EPaymentProvider {
 
 // promp
 
-export interface IPromo extends Promo, Document {}
+export interface IPromo extends Promo {}
 
 interface Promo {
   type: string;
@@ -383,7 +381,7 @@ interface Promo {
 
 // vendor user
 
-export interface IVendorUser extends Document {
+export interface IVendorUser {
   password: string | null;
   username: string;
   firstName: string;
@@ -398,7 +396,7 @@ export interface IVendorUser extends Document {
 
 // driver review
 
-export interface IDriverReview extends Document {
+export interface IDriverReview {
   order_id: string;
   driver_id: string;
   user_id: string;
@@ -409,7 +407,7 @@ export interface IDriverReview extends Document {
 
 // config
 
-export interface IConfig extends Document {
+export interface IConfig {
   deliveryFeeMultiplier: number;
   standardCommissionRate: number;
   packageFee: number;
