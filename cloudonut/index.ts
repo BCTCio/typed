@@ -76,6 +76,7 @@ export interface IAddress {
 // Orders
 
 export interface IOrder {
+  _id: string;
   order_id: string;
   user_id: string;
   order_type: EOrderType;
