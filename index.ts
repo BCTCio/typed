@@ -1,3 +1,7 @@
-import * as Cloudonut from './cloudonut';
+import * as Cloudonut from "./cloudonut";
 
-export default Cloudonut
+const Typing = {
+  Cloudonut,
+};
+
+export default Typing;
