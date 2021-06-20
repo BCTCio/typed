@@ -1,63 +1,63 @@
 export declare enum EStates {
-    'AL' = "Alabama",
-    'AK' = "Alaska",
-    'AS' = "American Samoa",
-    'AZ' = "Arizona",
-    'AR' = "Arkansas",
-    'CA' = "California",
-    'CO' = "Colorado",
-    'CT' = "Connecticut",
-    'DE' = "Delaware",
-    'DC' = "District Of Columbia",
-    'FM' = "Federated States Of Micronesia",
-    'FL' = "Florida",
-    'GA' = "Georgia",
-    'GU' = "Guam",
-    'HI' = "Hawaii",
-    'ID' = "Idaho",
-    'IL' = "Illinois",
-    'IN' = "Indiana",
-    'IA' = "Iowa",
-    'KS' = "Kansas",
-    'KY' = "Kentucky",
-    'LA' = "Louisiana",
-    'ME' = "Maine",
-    'MH' = "Marshall Islands",
-    'MD' = "Maryland",
-    'MA' = "Massachusetts",
-    'MI' = "Michigan",
-    'MN' = "Minnesota",
-    'MS' = "Mississippi",
-    'MO' = "Missouri",
-    'MT' = "Montana",
-    'NE' = "Nebraska",
-    'NV' = "Nevada",
-    'NH' = "New Hampshire",
-    'NJ' = "New Jersey",
-    'NM' = "New Mexico",
-    'NY' = "New York",
-    'NC' = "North Carolina",
-    'ND' = "North Dakota",
-    'MP' = "Northern Mariana Islands",
-    'OH' = "Ohio",
-    'OK' = "Oklahoma",
-    'OR' = "Oregon",
-    'PW' = "Palau",
-    'PA' = "Pennsylvania",
-    'PR' = "Puerto Rico",
-    'RI' = "Rhode Island",
-    'SC' = "South Carolina",
-    'SD' = "South Dakota",
-    'TN' = "Tennessee",
-    'TX' = "Texas",
-    'UT' = "Utah",
-    'VT' = "Vermont",
-    'VI' = "Virgin Islands",
-    'VA' = "Virginia",
-    'WA' = "Washington",
-    'WV' = "West Virginia",
-    'WI' = "Wisconsin",
-    'WY' = "Wyoming"
+    "AL" = "Alabama",
+    "AK" = "Alaska",
+    "AS" = "American Samoa",
+    "AZ" = "Arizona",
+    "AR" = "Arkansas",
+    "CA" = "California",
+    "CO" = "Colorado",
+    "CT" = "Connecticut",
+    "DE" = "Delaware",
+    "DC" = "District Of Columbia",
+    "FM" = "Federated States Of Micronesia",
+    "FL" = "Florida",
+    "GA" = "Georgia",
+    "GU" = "Guam",
+    "HI" = "Hawaii",
+    "ID" = "Idaho",
+    "IL" = "Illinois",
+    "IN" = "Indiana",
+    "IA" = "Iowa",
+    "KS" = "Kansas",
+    "KY" = "Kentucky",
+    "LA" = "Louisiana",
+    "ME" = "Maine",
+    "MH" = "Marshall Islands",
+    "MD" = "Maryland",
+    "MA" = "Massachusetts",
+    "MI" = "Michigan",
+    "MN" = "Minnesota",
+    "MS" = "Mississippi",
+    "MO" = "Missouri",
+    "MT" = "Montana",
+    "NE" = "Nebraska",
+    "NV" = "Nevada",
+    "NH" = "New Hampshire",
+    "NJ" = "New Jersey",
+    "NM" = "New Mexico",
+    "NY" = "New York",
+    "NC" = "North Carolina",
+    "ND" = "North Dakota",
+    "MP" = "Northern Mariana Islands",
+    "OH" = "Ohio",
+    "OK" = "Oklahoma",
+    "OR" = "Oregon",
+    "PW" = "Palau",
+    "PA" = "Pennsylvania",
+    "PR" = "Puerto Rico",
+    "RI" = "Rhode Island",
+    "SC" = "South Carolina",
+    "SD" = "South Dakota",
+    "TN" = "Tennessee",
+    "TX" = "Texas",
+    "UT" = "Utah",
+    "VT" = "Vermont",
+    "VI" = "Virgin Islands",
+    "VA" = "Virginia",
+    "WA" = "Washington",
+    "WV" = "West Virginia",
+    "WI" = "Wisconsin",
+    "WY" = "Wyoming"
 }
 export interface IAddress {
     apt_number: string;
@@ -97,12 +97,12 @@ export interface IOrder {
     schedule_time?: IScheduleTime;
     createdAt?: string;
     vendor?: {
-        title: IVendor['title'];
-        vendor_id: IVendor['vendor_id'];
+        title: IVendor["title"];
+        vendor_id: IVendor["vendor_id"];
     };
     vendorTitles?: string[];
     vendorIds?: string[];
-    userName?: IUser['nickname'];
+    userName?: IUser["nickname"];
     success?: boolean;
 }
 export interface IScheduleTime {
@@ -214,12 +214,10 @@ export interface IUser {
     coupons: [string];
 }
 export interface ICreateUser {
-    phone: IUser['phone'];
-    password: IUser['password'];
+    phone: IUser["phone"];
+    password: IUser["password"];
 }
-export interface IVendor extends Vendor {
-}
-interface Vendor {
+export interface IVendor {
     vendor_id: string;
     title: string;
     phone: string;
@@ -238,14 +236,14 @@ interface Vendor {
     email?: string;
     password?: string;
 }
-export interface IVendorWithItems extends Vendor {
+export interface IVendorWithItems extends IVendor {
     items?: IDishItem[];
 }
 export interface IVendorBasicInfo {
     _id?: string;
-    vendor_id: IVendor['vendor_id'];
-    logo: IVendor['logo'];
-    title: IVendor['title'];
+    vendor_id: IVendor["vendor_id"];
+    logo: IVendor["logo"];
+    title: IVendor["title"];
 }
 export interface IDishItem {
     title: string;

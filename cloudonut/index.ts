@@ -371,9 +371,7 @@ export enum EPaymentProvider {
 
 // promp
 
-export interface IPromo extends Promo {}
-
-interface Promo {
+export interface IPromo {
   type: string;
   slider: [{ image: string; vendor_id: string }];
   recommendVendors: [string];
