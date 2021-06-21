@@ -320,9 +320,7 @@ export declare enum EPaymentProvider {
     STRIPE = "STRIPE",
     PAYPAL = "PAYPAL"
 }
-export interface IPromo extends Promo {
-}
-interface Promo {
+export interface IPromo {
     type: string;
     slider: [{
         image: string;
