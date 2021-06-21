@@ -104,6 +104,7 @@ export interface IOrder {
     vendorIds?: string[];
     userName?: IUser["nickname"];
     success?: boolean;
+    deliveryTime?: Date;
 }
 export interface IScheduleTime {
     earliest_arrival: Date;
@@ -218,16 +219,12 @@ export interface ICreateUser {
     password: IUser["password"];
 }
 export interface IVendor {
+    _id: string;
     vendor_id: string;
     title: string;
     phone: string;
     address: IAddress;
-    open_hours: [
-        {
-            open: number;
-            close: number;
-        }
-    ];
+    open_hours: [IOpenHour];
     logo?: string;
     background_image?: string;
     tags?: [string];
@@ -235,6 +232,17 @@ export interface IVendor {
     menu_assets?: [string];
     email?: string;
     password?: string;
+    participating_vendors: TVendorLogo[];
+}
+export declare type TVendorLogo = {
+    _id: string;
+    vendor_id: string;
+    logo?: string;
+};
+export interface IOpenHour {
+    _id: string;
+    open: number;
+    close: number;
 }
 export interface IVendorWithItems extends IVendor {
     items?: IDishItem[];
@@ -244,6 +252,7 @@ export interface IVendorBasicInfo {
     vendor_id: IVendor["vendor_id"];
     logo: IVendor["logo"];
     title: IVendor["title"];
+    phone: IVendor["phone"];
 }
 export interface IDishItem {
     title: string;
@@ -355,5 +364,29 @@ export interface IConfig {
     platformDiscount: number;
     platformFeeRate: number;
     minimumDeliveryAmount: number;
+}
+export interface IMenu {
+    category_id: string;
+    title: string;
+    data: IDishItem[];
+    index: number;
+}
+export interface IDishItemDetail {
+    title: string;
+    description?: string;
+    image?: string;
+    base_price: number;
+    base_price_compared_at?: number;
+    _id: string;
+    variants: IDishVariant[];
+    modifiers?: IModifierGroup[];
+    vendor_id: string;
+    vendor_title: string;
+}
+export interface ICartModifier {
+    id: string;
+    title: string;
+    upcharge: number;
+    isMultiSelect: boolean;
 }
 export {};
