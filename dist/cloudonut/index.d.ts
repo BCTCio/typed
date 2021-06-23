@@ -1,63 +1,63 @@
 export declare enum EStates {
-    "AL" = "Alabama",
-    "AK" = "Alaska",
-    "AS" = "American Samoa",
-    "AZ" = "Arizona",
-    "AR" = "Arkansas",
-    "CA" = "California",
-    "CO" = "Colorado",
-    "CT" = "Connecticut",
-    "DE" = "Delaware",
-    "DC" = "District Of Columbia",
-    "FM" = "Federated States Of Micronesia",
-    "FL" = "Florida",
-    "GA" = "Georgia",
-    "GU" = "Guam",
-    "HI" = "Hawaii",
-    "ID" = "Idaho",
-    "IL" = "Illinois",
-    "IN" = "Indiana",
-    "IA" = "Iowa",
-    "KS" = "Kansas",
-    "KY" = "Kentucky",
-    "LA" = "Louisiana",
-    "ME" = "Maine",
-    "MH" = "Marshall Islands",
-    "MD" = "Maryland",
-    "MA" = "Massachusetts",
-    "MI" = "Michigan",
-    "MN" = "Minnesota",
-    "MS" = "Mississippi",
-    "MO" = "Missouri",
-    "MT" = "Montana",
-    "NE" = "Nebraska",
-    "NV" = "Nevada",
-    "NH" = "New Hampshire",
-    "NJ" = "New Jersey",
-    "NM" = "New Mexico",
-    "NY" = "New York",
-    "NC" = "North Carolina",
-    "ND" = "North Dakota",
-    "MP" = "Northern Mariana Islands",
-    "OH" = "Ohio",
-    "OK" = "Oklahoma",
-    "OR" = "Oregon",
-    "PW" = "Palau",
-    "PA" = "Pennsylvania",
-    "PR" = "Puerto Rico",
-    "RI" = "Rhode Island",
-    "SC" = "South Carolina",
-    "SD" = "South Dakota",
-    "TN" = "Tennessee",
-    "TX" = "Texas",
-    "UT" = "Utah",
-    "VT" = "Vermont",
-    "VI" = "Virgin Islands",
-    "VA" = "Virginia",
-    "WA" = "Washington",
-    "WV" = "West Virginia",
-    "WI" = "Wisconsin",
-    "WY" = "Wyoming"
+    'AL' = "Alabama",
+    'AK' = "Alaska",
+    'AS' = "American Samoa",
+    'AZ' = "Arizona",
+    'AR' = "Arkansas",
+    'CA' = "California",
+    'CO' = "Colorado",
+    'CT' = "Connecticut",
+    'DE' = "Delaware",
+    'DC' = "District Of Columbia",
+    'FM' = "Federated States Of Micronesia",
+    'FL' = "Florida",
+    'GA' = "Georgia",
+    'GU' = "Guam",
+    'HI' = "Hawaii",
+    'ID' = "Idaho",
+    'IL' = "Illinois",
+    'IN' = "Indiana",
+    'IA' = "Iowa",
+    'KS' = "Kansas",
+    'KY' = "Kentucky",
+    'LA' = "Louisiana",
+    'ME' = "Maine",
+    'MH' = "Marshall Islands",
+    'MD' = "Maryland",
+    'MA' = "Massachusetts",
+    'MI' = "Michigan",
+    'MN' = "Minnesota",
+    'MS' = "Mississippi",
+    'MO' = "Missouri",
+    'MT' = "Montana",
+    'NE' = "Nebraska",
+    'NV' = "Nevada",
+    'NH' = "New Hampshire",
+    'NJ' = "New Jersey",
+    'NM' = "New Mexico",
+    'NY' = "New York",
+    'NC' = "North Carolina",
+    'ND' = "North Dakota",
+    'MP' = "Northern Mariana Islands",
+    'OH' = "Ohio",
+    'OK' = "Oklahoma",
+    'OR' = "Oregon",
+    'PW' = "Palau",
+    'PA' = "Pennsylvania",
+    'PR' = "Puerto Rico",
+    'RI' = "Rhode Island",
+    'SC' = "South Carolina",
+    'SD' = "South Dakota",
+    'TN' = "Tennessee",
+    'TX' = "Texas",
+    'UT' = "Utah",
+    'VT' = "Vermont",
+    'VI' = "Virgin Islands",
+    'VA' = "Virginia",
+    'WA' = "Washington",
+    'WV' = "West Virginia",
+    'WI' = "Wisconsin",
+    'WY' = "Wyoming"
 }
 export interface IAddress {
     apt_number: string;
@@ -97,12 +97,12 @@ export interface IOrder {
     schedule_time?: IScheduleTime;
     createdAt?: string;
     vendor?: {
-        title: IVendor["title"];
-        vendor_id: IVendor["vendor_id"];
+        title: IVendor['title'];
+        vendor_id: IVendor['vendor_id'];
     };
     vendorTitles?: string[];
     vendorIds?: string[];
-    userName?: IUser["nickname"];
+    userName?: IUser['nickname'];
     success?: boolean;
     deliveryTime?: Date;
 }
@@ -215,8 +215,8 @@ export interface IUser {
     coupons: [string];
 }
 export interface ICreateUser {
-    phone: IUser["phone"];
-    password: IUser["password"];
+    phone: IUser['phone'];
+    password: IUser['password'];
 }
 export interface IVendor {
     _id: string;
@@ -249,10 +249,10 @@ export interface IVendorWithItems extends IVendor {
 }
 export interface IVendorBasicInfo {
     _id?: string;
-    vendor_id: IVendor["vendor_id"];
-    logo: IVendor["logo"];
-    title: IVendor["title"];
-    phone: IVendor["phone"];
+    vendor_id: IVendor['vendor_id'];
+    logo: IVendor['logo'];
+    title: IVendor['title'];
+    phone: IVendor['phone'];
 }
 export interface IDishItem {
     title: string;
@@ -293,11 +293,12 @@ export interface IDishVariant {
     price_compared_at: number;
     count: number;
 }
-interface IModifierByVariant {
+export interface IModifierByVariant {
     variant: string;
     upcharge: number;
 }
-interface IModifier {
+export interface IModifier {
+    _id: string;
     title: string;
     upcharge: number;
     byVariants: IModifierByVariant[];
@@ -389,4 +390,43 @@ export interface ICartModifier {
     upcharge: number;
     isMultiSelect: boolean;
 }
-export {};
+export interface IPaymentMethod {
+    id: string;
+    object: string;
+    billing_details: {
+        address: {
+            city: string;
+            country: string;
+            line1: string;
+            line2: string;
+            postal_code: string;
+            state: string;
+        };
+        email?: string;
+        name?: string;
+        phone?: string;
+    };
+    card: {
+        brand: string;
+        checks: {
+            address_line1_check: string;
+            address_postal_code_check: string;
+            cvc_check: string;
+        };
+        country: string;
+        exp_month: number;
+        exp_year: number;
+        fingerprint: string;
+        funding: string;
+        generated_from: unknown;
+        last4: string;
+        networks: {
+            available: [string];
+            preferred: unknown;
+        };
+        three_d_secure_usage: {
+            supported: boolean;
+        };
+        wallet: unknown;
+    };
+}
