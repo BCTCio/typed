@@ -288,6 +288,7 @@ export interface IVendorBasicInfo {
 
 // dish item
 export interface IDishItem {
+  _id: string;
   title: string;
   vendor_id: string;
   category_id: string;
