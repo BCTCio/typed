@@ -210,9 +210,9 @@ export interface IUser {
     wx_union_id?: string;
     gender?: EGender;
     avatar?: string;
-    favorite_vendors?: [string];
+    favorite_vendors?: string[];
     date_of_birth?: Date;
-    coupons: [string];
+    coupons: string[];
 }
 export interface ICreateUser {
     phone: IUser['phone'];
