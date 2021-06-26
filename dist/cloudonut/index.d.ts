@@ -255,6 +255,7 @@ export interface IVendorBasicInfo {
     phone: IVendor['phone'];
 }
 export interface IDishItem {
+    _id: string;
     title: string;
     vendor_id: string;
     category_id: string;
