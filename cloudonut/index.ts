@@ -1,63 +1,63 @@
 export enum EStates {
-  "AL" = "Alabama",
-  "AK" = "Alaska",
-  "AS" = "American Samoa",
-  "AZ" = "Arizona",
-  "AR" = "Arkansas",
-  "CA" = "California",
-  "CO" = "Colorado",
-  "CT" = "Connecticut",
-  "DE" = "Delaware",
-  "DC" = "District Of Columbia",
-  "FM" = "Federated States Of Micronesia",
-  "FL" = "Florida",
-  "GA" = "Georgia",
-  "GU" = "Guam",
-  "HI" = "Hawaii",
-  "ID" = "Idaho",
-  "IL" = "Illinois",
-  "IN" = "Indiana",
-  "IA" = "Iowa",
-  "KS" = "Kansas",
-  "KY" = "Kentucky",
-  "LA" = "Louisiana",
-  "ME" = "Maine",
-  "MH" = "Marshall Islands",
-  "MD" = "Maryland",
-  "MA" = "Massachusetts",
-  "MI" = "Michigan",
-  "MN" = "Minnesota",
-  "MS" = "Mississippi",
-  "MO" = "Missouri",
-  "MT" = "Montana",
-  "NE" = "Nebraska",
-  "NV" = "Nevada",
-  "NH" = "New Hampshire",
-  "NJ" = "New Jersey",
-  "NM" = "New Mexico",
-  "NY" = "New York",
-  "NC" = "North Carolina",
-  "ND" = "North Dakota",
-  "MP" = "Northern Mariana Islands",
-  "OH" = "Ohio",
-  "OK" = "Oklahoma",
-  "OR" = "Oregon",
-  "PW" = "Palau",
-  "PA" = "Pennsylvania",
-  "PR" = "Puerto Rico",
-  "RI" = "Rhode Island",
-  "SC" = "South Carolina",
-  "SD" = "South Dakota",
-  "TN" = "Tennessee",
-  "TX" = "Texas",
-  "UT" = "Utah",
-  "VT" = "Vermont",
-  "VI" = "Virgin Islands",
-  "VA" = "Virginia",
-  "WA" = "Washington",
-  "WV" = "West Virginia",
-  "WI" = "Wisconsin",
-  "WY" = "Wyoming",
+  'AL' = 'Alabama',
+  'AK' = 'Alaska',
+  'AS' = 'American Samoa',
+  'AZ' = 'Arizona',
+  'AR' = 'Arkansas',
+  'CA' = 'California',
+  'CO' = 'Colorado',
+  'CT' = 'Connecticut',
+  'DE' = 'Delaware',
+  'DC' = 'District Of Columbia',
+  'FM' = 'Federated States Of Micronesia',
+  'FL' = 'Florida',
+  'GA' = 'Georgia',
+  'GU' = 'Guam',
+  'HI' = 'Hawaii',
+  'ID' = 'Idaho',
+  'IL' = 'Illinois',
+  'IN' = 'Indiana',
+  'IA' = 'Iowa',
+  'KS' = 'Kansas',
+  'KY' = 'Kentucky',
+  'LA' = 'Louisiana',
+  'ME' = 'Maine',
+  'MH' = 'Marshall Islands',
+  'MD' = 'Maryland',
+  'MA' = 'Massachusetts',
+  'MI' = 'Michigan',
+  'MN' = 'Minnesota',
+  'MS' = 'Mississippi',
+  'MO' = 'Missouri',
+  'MT' = 'Montana',
+  'NE' = 'Nebraska',
+  'NV' = 'Nevada',
+  'NH' = 'New Hampshire',
+  'NJ' = 'New Jersey',
+  'NM' = 'New Mexico',
+  'NY' = 'New York',
+  'NC' = 'North Carolina',
+  'ND' = 'North Dakota',
+  'MP' = 'Northern Mariana Islands',
+  'OH' = 'Ohio',
+  'OK' = 'Oklahoma',
+  'OR' = 'Oregon',
+  'PW' = 'Palau',
+  'PA' = 'Pennsylvania',
+  'PR' = 'Puerto Rico',
+  'RI' = 'Rhode Island',
+  'SC' = 'South Carolina',
+  'SD' = 'South Dakota',
+  'TN' = 'Tennessee',
+  'TX' = 'Texas',
+  'UT' = 'Utah',
+  'VT' = 'Vermont',
+  'VI' = 'Virgin Islands',
+  'VA' = 'Virginia',
+  'WA' = 'Washington',
+  'WV' = 'West Virginia',
+  'WI' = 'Wisconsin',
+  'WY' = 'Wyoming',
 }
 
 export interface IAddress {
@@ -101,12 +101,12 @@ export interface IOrder {
   schedule_time: string;
   createdAt?: string;
   vendor?: {
-    title: IVendor["title"];
-    vendor_id: IVendor["vendor_id"];
+    title: IVendor['title'];
+    vendor_id: IVendor['vendor_id'];
   };
   vendorTitles?: string[];
   vendorIds?: string[];
-  userName?: IUser["nickname"];
+  userName?: IUser['nickname'];
   success?: boolean;
   deliveryTime?: Date;
 }
@@ -153,19 +153,20 @@ export interface IOrderRequestBody {
 }
 
 export enum EOrderType {
-  SCHEDULED = "SCHEDULED",
-  INSTANT = "INSTANT",
-  GROUP = "GROUP",
+  SCHEDULED = 'SCHEDULED',
+  INSTANT = 'INSTANT',
+  GROUP = 'GROUP',
+  LATENIGHT = 'LATENIGHT',
 }
 
 export enum EOrderStatus {
-  UNPAID = "UNPAID",
-  CANCELLED = "CANCELLED",
-  PENDING = "PENDING",
-  SCHEDULED = "SCHEDULED",
-  PREPARING = "PREPARING",
-  DELIVERING = "DELIVERING",
-  DELIVERED = "DELIVERED",
+  UNPAID = 'UNPAID',
+  CANCELLED = 'CANCELLED',
+  PENDING = 'PENDING',
+  SCHEDULED = 'SCHEDULED',
+  PREPARING = 'PREPARING',
+  DELIVERING = 'DELIVERING',
+  DELIVERED = 'DELIVERED',
 }
 
 // Group orders pickup locations
@@ -201,16 +202,16 @@ export interface IDiscount {
 }
 
 export enum EDiscountType {
-  REDUCTION = "REDUCTION",
-  PERCENTAGE = "PERCENTAGE",
+  REDUCTION = 'REDUCTION',
+  PERCENTAGE = 'PERCENTAGE',
 }
 
 // user
 
 export enum EGender {
-  MALE = "MALE",
-  FEMALE = "FEMALE",
-  NULL = "NULL",
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+  NULL = 'NULL',
 }
 
 export interface IUser {
@@ -234,8 +235,8 @@ export interface IUser {
 }
 
 export interface ICreateUser {
-  phone: IUser["phone"];
-  password: IUser["password"];
+  phone: IUser['phone'];
+  password: IUser['password'];
 }
 
 // vendor
@@ -275,10 +276,10 @@ export interface IVendorWithItems extends IVendor {
 
 export interface IVendorBasicInfo {
   _id?: string;
-  vendor_id: IVendor["vendor_id"];
-  logo: IVendor["logo"];
-  title: IVendor["title"];
-  phone: IVendor["phone"];
+  vendor_id: IVendor['vendor_id'];
+  logo: IVendor['logo'];
+  title: IVendor['title'];
+  phone: IVendor['phone'];
 }
 
 // dish item
@@ -373,8 +374,8 @@ export interface IPayment {
 }
 
 export enum EPaymentProvider {
-  STRIPE = "STRIPE",
-  PAYPAL = "PAYPAL",
+  STRIPE = 'STRIPE',
+  PAYPAL = 'PAYPAL',
 }
 
 // promp
