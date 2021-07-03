@@ -427,6 +427,8 @@ export interface IConfig {
 
 export interface IVendorEvents {
   vendor_id: string;
+  start_date: Date;
+  end_date: Date;
   type: EVendorEventType;
   target_amount?: number;
   reduce_amount?: number;
