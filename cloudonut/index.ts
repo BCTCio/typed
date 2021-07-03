@@ -423,6 +423,21 @@ export interface IConfig {
   minimumDeliveryAmount: number;
 }
 
+// vendor event
+
+export interface IVendorEvents {
+  vendor_id: string;
+  type: EVendorEventType;
+  target_amount?: number;
+  reduce_amount?: number;
+  percentage?: number;
+}
+
+export enum EVendorEventType {
+  PERCENT = 'PERCENT',
+  REDUCTION = 'REDUCTION',
+}
+
 // App specific
 export interface IMenu {
   category_id: string;
