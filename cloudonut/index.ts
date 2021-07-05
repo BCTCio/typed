@@ -321,6 +321,7 @@ export interface IDishCategory {
 
 // variant
 export interface IDishVariant {
+  _id?: string;
   title: string;
   vendor_id: string;
   description?: string;
@@ -337,7 +338,7 @@ export interface IModifierByVariant {
 }
 
 export interface IModifier {
-  _id: string;
+  _id?: string;
   title: string;
   upcharge: number; // should be mutually exclusive with byVariants
   byVariants: IModifierByVariant[];
