@@ -345,6 +345,7 @@ export interface IModifier {
 }
 
 export interface IModifierGroup {
+  _id?: string;
   instruction: string;
   title?: string;
   modifiers: IModifier[];
@@ -364,6 +365,14 @@ export interface IOrderReview {
   star: number;
   comment?: string;
   images?: string[];
+}
+
+// pagination
+export interface Pagination {
+  data: any;
+  total: number;
+  totalPages: number;
+  currentPage: number;
 }
 
 // payments
