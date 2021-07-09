@@ -141,7 +141,6 @@ export interface IOrderRequestBody {
   user_id: string;
   payment_id: string;
   discounts?: IDiscount[];
-  note?: string;
   order_type: EOrderType;
   destination: IAddress;
   status: EOrderStatus;
