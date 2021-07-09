@@ -215,6 +215,7 @@ export enum EGender {
 }
 
 export interface IUser {
+  _id?: string;
   user_id: string;
   phone: string;
   nickname?: string;
