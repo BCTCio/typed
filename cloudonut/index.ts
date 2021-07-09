@@ -232,6 +232,7 @@ export interface IUser {
   favorite_vendors?: string[];
   date_of_birth?: Date;
   coupons: string[];
+  notificationToken?: string;
 }
 
 export interface ICreateUser {
