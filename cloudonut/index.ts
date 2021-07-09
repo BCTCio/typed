@@ -91,7 +91,6 @@ export interface IOrder {
   platform_fee: number;
   tips: number;
   grand_total: number;
-  note?: string;
   destination: IAddress;
   status: EOrderStatus;
   driver_id: string;
@@ -120,6 +119,7 @@ export interface IOrderItem {
   variant_title?: string | null | undefined;
   item_image?: string;
   modifiers: IOrderModifier[];
+  note?: string;
 }
 
 export interface IOrderRequestItem {
