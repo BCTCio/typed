@@ -396,6 +396,11 @@ export interface IPromo {
   slider: [{ image: string; vendor_id: string }];
   recommendVendors: [string];
 }
+export enum EPromoType {
+  INSTANT = 'INSTANT',
+  GROUP = 'GROUP',
+  LATENIGHT = 'LATENIGHT',
+}
 
 // vendor user
 
