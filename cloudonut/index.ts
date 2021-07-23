@@ -232,7 +232,6 @@ export interface IUser {
   favorite_vendors?: string[];
   date_of_birth?: Date;
   coupons: string[];
-  notificationToken?: string;
 }
 
 export interface ICreateUser {
@@ -400,6 +399,13 @@ export enum EPromoType {
   INSTANT = 'INSTANT',
   GROUP = 'GROUP',
   LATENIGHT = 'LATENIGHT',
+}
+
+//notification
+
+export interface INotification {
+  token: string;
+  deviceId: string;
 }
 
 // vendor user
