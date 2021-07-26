@@ -73,6 +73,11 @@ export interface IAddress {
   phone: string;
 }
 
+export interface ITag {
+  title: string;
+  _id?: string;
+}
+
 // Orders
 
 export interface IOrder {
