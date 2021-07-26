@@ -71,6 +71,10 @@ export interface IAddress {
     is_default: boolean;
     phone: string;
 }
+export interface ITag {
+    title: string;
+    _id?: string;
+}
 export interface IOrder {
     _id: string;
     order_id: string;
@@ -133,7 +137,6 @@ export interface IOrderRequestBody {
     user_id: string;
     payment_id: string;
     discounts?: IDiscount[];
-    note?: string;
     order_type: EOrderType;
     destination: IAddress;
     status: EOrderStatus;
@@ -344,6 +347,15 @@ export interface IPromo {
         vendor_id: string;
     }];
     recommendVendors: [string];
+}
+export declare enum EPromoType {
+    INSTANT = "INSTANT",
+    GROUP = "GROUP",
+    LATENIGHT = "LATENIGHT"
+}
+export interface INotification {
+    token: string;
+    deviceId: string;
 }
 export interface IVendorUser {
     password: string | null;

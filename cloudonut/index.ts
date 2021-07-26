@@ -75,6 +75,7 @@ export interface IAddress {
 
 export interface ITag {
   title: string;
+  image?: string;
   _id?: string;
 }
 
