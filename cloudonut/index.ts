@@ -256,7 +256,7 @@ export interface IVendor {
   open_hours: [IOpenHour];
   logo?: string;
   background_image?: string;
-  tags?: [string];
+  tags?: [ITag];
   group_buy?: [string];
   menu_assets?: [string];
   email?: string;
