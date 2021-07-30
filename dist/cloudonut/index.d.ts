@@ -249,6 +249,9 @@ export interface IOpenHour {
 export interface IVendorWithItems extends IVendor {
     items?: IDishItem[];
 }
+export interface IVendorWithTags extends Omit<IVendor, 'tags'> {
+    tags: [ITag];
+}
 export interface IVendorBasicInfo {
     _id?: string;
     vendor_id: IVendor['vendor_id'];

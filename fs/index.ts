@@ -18,3 +18,8 @@ export interface ITeacher {
   wechat: string;
   avatar: string;
 }
+
+export interface ThirdPartyInfo {
+  provider: string;
+  id: string;
+}
