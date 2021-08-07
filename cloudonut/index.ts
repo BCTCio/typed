@@ -104,7 +104,7 @@ export interface IOrder {
   group_order_id?: string;
   group_order_time?: IGroupOrderTimeSlot;
   schedule_time: string;
-  createdAt?: string;
+  createdAt?: Date;
   vendor?: {
     title: IVendor['title'];
     vendor_id: IVendor['vendor_id'];
