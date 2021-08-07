@@ -229,7 +229,7 @@ export interface IVendor {
     open_hours: [IOpenHour];
     logo?: string;
     background_image?: string;
-    tags?: string;
+    tags?: string[];
     group_buy?: [string];
     menu_assets?: [string];
     email?: string;
@@ -248,6 +248,9 @@ export interface IOpenHour {
 }
 export interface IVendorWithItems extends IVendor {
     items?: IDishItem[];
+}
+export interface IVendorWithTags extends Omit<IVendor, 'tags'> {
+    tags: [ITag];
 }
 export interface IVendorBasicInfo {
     _id?: string;
