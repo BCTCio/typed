@@ -126,6 +126,8 @@ export interface IOrderItem {
   item_image?: string;
   modifiers: IOrderModifier[];
   note?: string;
+  isRemoval?: boolean;
+  availableTime?: { start: number; end: number };
 }
 
 export interface IOrderRequestItem {
@@ -134,6 +136,8 @@ export interface IOrderRequestItem {
   variant_id?: string;
   modifiers: IOrderModifier[];
   note?: string;
+  isRemoval?: boolean;
+  availableTime?: { start: number; end: number };
 }
 
 export interface IOrderModifier {
@@ -304,6 +308,8 @@ export interface IDishItem {
   variants: string[]; //必選
   image?: string;
   modifiers?: string[];
+  isRemoval?: boolean;
+  availableTime?: { start: number; end: number };
 }
 
 export interface IDishItemDetail {
@@ -317,6 +323,8 @@ export interface IDishItemDetail {
   modifiers?: IModifierGroup[];
   vendor_id: string;
   vendor_title: string;
+  isRemoval?: boolean;
+  availableTime?: { start: number; end: number };
 }
 
 // category
@@ -491,6 +499,8 @@ export interface IDishItemDetail {
   modifiers?: IModifierGroup[];
   vendor_id: string;
   vendor_title: string;
+  isRemoval?: boolean;
+  availableTime?: { start: number; end: number };
 }
 
 export interface ICartModifier {
