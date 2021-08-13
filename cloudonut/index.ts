@@ -387,7 +387,7 @@ export interface IOrderReview {
 
 // pagination
 export interface Pagination {
-  data: any;
+  data: unknown;
   total: number;
   totalPages: number;
   currentPage: number;
