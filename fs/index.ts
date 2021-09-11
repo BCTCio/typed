@@ -1,10 +1,26 @@
+enum EGender {
+  male,
+  female,
+}
+
 export interface IStudent {
   isActive: boolean;
   firstName: string;
   lastName: string;
   password: string;
   email: string;
+  discordId?: string;
+  location?: string;
+  personalWebsite?: string;
+  hobbies?: string;
+  githubName?: string;
+  about?: string;
+  username?: string;
+  dob?: Date;
+  gender?: EGender;
+  avatar?: string;
   studentId: string;
+  likes: string[];
   _id: string;
 }
 
