@@ -4,6 +4,15 @@ export interface IStudent {
   lastName: string;
   password: string;
   email: string;
+  discordId?: string;
+  location?: string;
+  personalWebsite?: string;
+  hobbies?: string;
+  githubName?: string;
+  about?: string;
+  handle?: string;
+  dob?: string;
+  gender?: string;
   studentId: string;
   _id: string;
 }
