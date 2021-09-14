@@ -20,7 +20,7 @@ export interface IStudent {
   gender?: EGender;
   avatar?: string;
   studentId: string;
-  likes: string[];
+  liked_users: string[];
   _id: string;
 }
 
