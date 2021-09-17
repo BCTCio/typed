@@ -1,6 +1,6 @@
 enum EGender {
-  male,
-  female,
+  MALE,
+  FEMALE,
 }
 
 export interface IStudent {
