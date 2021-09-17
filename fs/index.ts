@@ -39,3 +39,27 @@ export interface ThirdPartyInfo {
   provider: string;
   id: string;
 }
+
+export interface IClass {
+  _id: string;
+  teachers: [string];
+  students: [string];
+  title: string;
+  templateId: string;
+  startTime: string;
+  endTime: string;
+  startDate: string;
+  endDate: string;
+  days: [number];
+  cohort: number;
+  classLength: number;
+  assetFileType: string;
+  zoomId: string;
+  zoomLink: string;
+  zoomPassword: string;
+  ongoing: boolean;
+  teacherName: string;
+  formatEndDate: string;
+  formatStartDate: string;
+  _v?: number;
+}
