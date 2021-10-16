@@ -63,3 +63,14 @@ export interface IClass {
   formatStartDate: string;
   _v?: number;
 }
+
+export interface IAnnouncements {
+  announcements: {
+    _id: string;
+    title: string;
+    description: string;
+    announcer: string;
+    date: Date;
+  }[];
+  isMore: boolean;
+}
