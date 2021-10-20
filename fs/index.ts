@@ -72,5 +72,6 @@ export interface IAnnouncements {
     announcer: string;
     date: Date;
   }[];
-  isMore: boolean;
+  currentPage: number;
+  totalAnnouncements: number;
 }
