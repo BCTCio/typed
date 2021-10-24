@@ -79,8 +79,8 @@ export interface IAnnouncements {
 export interface ISubmission {
   attachment?: FileList;
   content?: string;
+  link: string;
   studentId: string;
   classId: string;
   classIndex: string;
-  comment:string;
 }
