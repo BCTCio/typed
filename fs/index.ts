@@ -82,4 +82,5 @@ export interface IHomework {
   studentId: string;
   classId: string;
   classIndex: string;
+  comment:string;
 }
