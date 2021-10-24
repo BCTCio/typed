@@ -76,7 +76,7 @@ export interface IAnnouncements {
   totalAnnouncements: number;
 }
 
-export interface IHomework {
+export interface ISubmission {
   attachment?: FileList;
   content?: string;
   studentId: string;
