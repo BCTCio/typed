@@ -75,3 +75,12 @@ export interface IAnnouncements {
   currentPage: number;
   totalAnnouncements: number;
 }
+
+export interface ISubmission {
+  attachment?: FileList;
+  content?: string;
+  link: string;
+  studentId: string;
+  classId: string;
+  classIndex: string;
+}
