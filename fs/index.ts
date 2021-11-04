@@ -31,8 +31,17 @@ export interface ITeacher {
   email: string;
   _id: string;
   phone: string;
+  dob?: Date;
+  username?: string;
+  githubName?: string;
+  gender?: EGender;
   wechat: string;
   avatar: string;
+  discordId?: string;
+  personalWebsite?: string;
+  hobbies?: string;
+  about?: string;
+  location?: string;
 }
 
 export interface ThirdPartyInfo {
